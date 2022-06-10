@@ -3,16 +3,16 @@ import logo from '../assets/logo.png'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min';
 import SearchIcon from '@mui/icons-material/Search';
-import PersonOutlinedIcon from '@mui/icons-material/PersonOutlined';
+import Login from './Login'
+import '../index.css'
 
-const Header = () => {
+const Header = ({accountState}) => {
  return(
     <React.Fragment>
-
       
-<nav class='navbar navbar-expand-lg navbar-light' style={{backgroundColor: 'white'}}>
+<nav className='navbar navbar-expand-lg navbar-light' style={{backgroundColor: 'white'}}>
 
-<div class="container">
+<div className="container">
 
     <a className='navbar-brand' href='Home'>
       <img
@@ -22,21 +22,18 @@ const Header = () => {
       />
     </a>
 
-    <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
-              <span class="navbar-toggler-icon"></span>
+    <button type="button" className="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+              <span className="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse" id="navbarCollapse">
+    <div className="collapse navbar-collapse mt-3" id="navbarCollapse">
     
-    <form class="d-flex input-group m-auto " 
-    style={{
-      width:'80%'
-    }}>
+    <form className="d-flex m-auto search-div" >
     <input
       type="search"
-      class="form-control rounded"
+      className="form-control rounded"
       placeholder='Search...'
     />
-    <button class='input-group-text ms-2 text-white rounded' style={{backgroundColor: '#103037'}} id="search-addon">
+    <button className='input-group-text ms-2 text-white rounded' style={{backgroundColor: '#103037'}} id="search-addon">
       <SearchIcon 
       style={{ color: 'white' }}
       />
@@ -44,14 +41,7 @@ const Header = () => {
     </button>
   </form>
 
-  <div class='navbar-nav'>
-      <a className='ms-5 text-decoration-none' style={{color: '#103037'}} href='Profile'>
-        <PersonOutlinedIcon
-        style={{ color: '#103037' }}
-        />
-        Account
-      </a>
-  </div>
+  <Login/>
 
 </div>
 </div>
