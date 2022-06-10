@@ -1,13 +1,15 @@
-import React, {useState } from 'react';
+import React from 'react';
 import ReactDOM from 'react-dom'
-import Nav from './components/comp'
-import img from './assets/img.jpg'
-import './index.css'
+import Header from './components/header'
 
-function Header() {
-  
-}
+function Book() {
+  return(
+    <React.Fragment>
+    <Header/>
+    </React.Fragment>
+  )
+  }
 const root = ReactDOM.createRoot(document.getElementById('root'))
 root.render(
-  <NavBar/>
+  <Book/>
 )
