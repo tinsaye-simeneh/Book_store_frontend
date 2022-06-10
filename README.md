@@ -4,4 +4,4 @@ Components:
 - Responsive Header: Logo (Left Side) | Search bar + Search Button with icon (Central) | Acount Button + icon (Right Side)
 - Responsive Footer: Other Pages Redirection link + social links
 
-Contributes: Tinsaye Simeneh | Eyosias Tamirat
+Contributors: Tinsaye Simeneh | Eyosias Tamirat
