@@ -5,9 +5,8 @@ import FacebookIcon from "@mui/icons-material/Facebook";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import TwitterIcon from "@mui/icons-material/Twitter";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
-import FmdGoodIcon from "@mui/icons-material/FmdGood";
-import MailIcon from "@mui/icons-material/Mail";
 //color #103037
+
 function Footer() {
   return (
     <footer>
