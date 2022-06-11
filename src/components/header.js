@@ -41,7 +41,14 @@ const Header = ({accountState}) => {
     </button>
   </form>
 
-  <Login/>
+  <Login
+  btnName = {'Account'}
+  iconState = {'inline'}
+  btnStyle = {{
+    border: 'none',
+        backgroundColor: 'white'
+  }}
+  />
 
 </div>
 </div>

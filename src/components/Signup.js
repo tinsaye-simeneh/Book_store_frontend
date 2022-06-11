@@ -4,25 +4,25 @@ import '../index.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min';
 
-import PersonOutlinedIcon from '@mui/icons-material/PersonOutlined';
 import Box from '@mui/material/Box';
 import Modal from '@mui/material/Modal';
 import Button from '@mui/material/Button';
 import Account from './Account'
-import Signup from './Signup'
+import Login from './Login'
+import '../index.css'
 
 
 const style = {
-  position: 'absolute',
+  position: 'relative',
   top: '50%',
   left: '50%',
-  maxHeight: 'calc(100vh)',
-  overflowY: 'auto',
-  overflow: 'scroll',
   textAlign: 'center',
   color: '#103037',
   transform: 'translate(-50%, -50%)',
   bgcolor: 'background.paper',
+  maxHeight: 'calc(100vh)',
+  overflowY: 'auto',
+  overflow: 'scroll',
   border: 'none',
   boxShadow: 24,
   pt: 2,
@@ -30,7 +30,7 @@ const style = {
   pb: 3,
 };
 
-export default function Login({iconState, btnName, btnStyle}) {
+export default function Signup() {
   const [open, setOpen] = useState(false);
   const handleOpen = () => {
     setOpen(true);
@@ -39,17 +39,15 @@ export default function Login({iconState, btnName, btnStyle}) {
     setOpen(false);
   };
 
-
   return (
     <div>
       
       <div className='navbar-nav m-auto mt-1'>
-      <button onClick={handleOpen} className="accountbtn-div"
-      style={btnStyle}> 
-        <PersonOutlinedIcon className={iconState}
-        style={{ color: '#103037'}}
-        />
-        {btnName}
+      <button onClick={handleOpen} style={{
+                     border: 'none',
+                     backgroundColor: 'white'
+                }}> 
+                Signup
         </button>
   </div>
   
@@ -62,13 +60,18 @@ export default function Login({iconState, btnName, btnStyle}) {
         <Box sx={{ ...style}} className='modal-div'>
 
         <Account
-        modalText = {'LOGIN'}
+        modalText = {'SINGUP'}
         formAction = {handleClose}
-        linkText = {"Don't have an account?"}
-        LINK = {<Signup/>}
-        col1 = {'col-sm-6'}
-        col2 = {'col-sm-6'}
-        signupInputs = {'d-none'}
+        linkText = {"Already have an account?"}
+        LINK = {<Login 
+          btnName = {'Login'} 
+        iconState = {'d-none'} 
+        btnStyle = {{
+          border: 'none',
+        backgroundColor: 'white'
+      }}/>}
+        col1 = {'col-sm-12'}
+        col2 = {'d-none'}
         />
 
           <Button onClick={handleClose} 
@@ -78,12 +81,11 @@ export default function Login({iconState, btnName, btnStyle}) {
             color: 'white',
             fontSize: '1.1rem'
         }}> 
-        Close
+        Back to login
         </Button>
 
         </Box>
       </Modal>
-    </div>
-  );
+    </div>  );
 }
 
