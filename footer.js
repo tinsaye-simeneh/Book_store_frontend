@@ -1,7 +1,7 @@
 import React from "react";
 import { Container, Grid, Box, Typography } from "@material-ui/core";
 import { Pagination } from "@mui/material";
-import { Link } from "@material-ui/core";
+import Link from '@mui/material/Link';
 import FacebookIcon from "@mui/icons-material/Facebook";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import TwitterIcon from "@mui/icons-material/Twitter";

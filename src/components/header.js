@@ -16,6 +16,7 @@ const Header = ({accountState}) => {
 
     <a className='navbar-brand' href='Home'>
       <img
+      className='mt-2'
         src={logo}
         height="45"
         alt="Logo"
@@ -45,7 +46,7 @@ const Header = ({accountState}) => {
   btnName = {'Account'}
   iconState = {'inline'}
   btnStyle = {{
-    border: 'none',
+       border: '2px solid #103037',
         backgroundColor: 'white'
   }}
   />

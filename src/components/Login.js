@@ -8,7 +8,7 @@ import PersonOutlinedIcon from '@mui/icons-material/PersonOutlined';
 import Box from '@mui/material/Box';
 import Modal from '@mui/material/Modal';
 import Button from '@mui/material/Button';
-import Account from './Account'
+import Input from './Inputs'
 import Signup from './Signup'
 
 
@@ -16,9 +16,6 @@ const style = {
   position: 'absolute',
   top: '50%',
   left: '50%',
-  maxHeight: 'calc(100vh)',
-  overflowY: 'auto',
-  overflow: 'scroll',
   textAlign: 'center',
   color: '#103037',
   transform: 'translate(-50%, -50%)',
@@ -44,8 +41,7 @@ export default function Login({iconState, btnName, btnStyle}) {
     <div>
       
       <div className='navbar-nav m-auto mt-1'>
-      <button onClick={handleOpen} className="accountbtn-div"
-      style={btnStyle}> 
+      <button onClick={handleOpen} className="accountbtn-div"> 
         <PersonOutlinedIcon className={iconState}
         style={{ color: '#103037'}}
         />
@@ -61,8 +57,8 @@ export default function Login({iconState, btnName, btnStyle}) {
       >
         <Box sx={{ ...style}} className='modal-div'>
 
-        <Account
-        modalText = {'LOGIN'}
+        <Input
+        modalText = {'LOG IN'}
         formAction = {handleClose}
         linkText = {"Don't have an account?"}
         LINK = {<Signup/>}

@@ -17,7 +17,7 @@ import FacebookIcon from '@mui/icons-material/Facebook';
 import TelegramIcon from '@mui/icons-material/Telegram';
 
 
-export default function Account(
+export default function Input(
   {
     modalText, formAction, linkText, LINK, col1, col2, signupInputs
   }) {

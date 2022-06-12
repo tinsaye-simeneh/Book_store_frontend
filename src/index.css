@@ -10,6 +10,9 @@ body {
     .email-div{
         width: 30vw;
        }
+       .input-div{
+        width: 30vw;
+       }
        .password-div{
         width: 30vw;
        }
@@ -37,6 +40,9 @@ body {
     }
     .email-div{
         width: 75vw;
+       }
+       .input-div{
+        width: 90vw;
        }
        .password-div{
         width: 75vw;
