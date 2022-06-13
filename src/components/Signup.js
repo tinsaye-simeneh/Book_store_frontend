@@ -42,11 +42,13 @@ export default function Signup() {
     <div>
       
       <div className='navbar-nav m-auto mt-1'>
-      <button onClick={handleOpen} style={{
-                     backgroundColor: '#103037',
-                     color:'white',
-                     border: 'none'
-                }}> 
+      <button onClick={handleOpen} 
+      style={{
+        backgroundColor: 'white',
+        color:'#103037',
+        border: '2px solid #103037'
+   }}
+      > 
                 Signup
         </button>
   </div>
@@ -55,7 +57,6 @@ export default function Signup() {
         open={open}
         aria-labelledby="parent-modal-title"
         aria-describedby="parent-modal-description"
-        style={{overflow:'scroll'}}
       >
         <Box sx={{ ...style}} className='modal-div'>
 
@@ -66,10 +67,10 @@ export default function Signup() {
         LINK = {<Login 
           btnName = {'Login'} 
         iconState = {'d-none'} 
-        btnStyle = {{
-          border: 'none',
-        backgroundColor: 'white'
-      }}/>}
+        btntype = {{
+          
+        }} 
+      />}
         col1 = {'col-sm-12'}
         col2 = {'d-none'}
         />
@@ -81,7 +82,7 @@ export default function Signup() {
             color: 'white',
             fontSize: '1.1rem'
         }}> 
-        Back to login
+        Close
         </Button>
 
         </Box>

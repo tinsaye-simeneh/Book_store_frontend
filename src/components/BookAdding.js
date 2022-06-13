@@ -54,7 +54,7 @@ export function BookAdding() {
     );
   };
 
-  const [dropvalue, setDropvalue] = useState([
+  const [dropvalue] = useState([
     "Psychological",
     "Fiction",
     "Biography",
@@ -74,7 +74,9 @@ export function BookAdding() {
     alert("yoooo it worked");
   }
 
-  function handleSubmit() {}
+  function handleSubmit() {
+    alert("please change this book please please");
+  }
 
   const [datevalue, setDatevalue] = useState(
     new Date("2014-08-18T21:11:54")
@@ -209,16 +211,12 @@ export function BookAdding() {
         <div className="row my-4 m-auto text-center">
           <div className="col-sm-12">
             <Link
-              component="button"
-              variant="body2"
               onClick={handleCancelclick}
               style={{
-                color: "#103037",
                 textDecoration: "none",
               }}
             >
               <Button
-                variant="contained"
                 className="btn-div"
                 style={{
                   backgroundColor: "white",
@@ -226,7 +224,7 @@ export function BookAdding() {
                   border: "2px solid #103037",
                 }}
               >
-                Cancel
+                Back to Profile Page
               </Button>
             </Link>
           </div>
