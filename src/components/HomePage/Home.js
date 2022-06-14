@@ -1,5 +1,5 @@
 import React from "react";
-import { Typography, Grid, Container } from "@material-ui/core";
+import { Typography, Grid, Container } from "@mui/material";
 import BookCard from "./BookCard";
 import useStyles from "../styles";
 const Home = () => {
