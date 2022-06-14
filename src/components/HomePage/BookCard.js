@@ -8,7 +8,7 @@ import {
   CardContent,
   CardActions,
   Button,
-} from "@material-ui/core";
+} from "@mui/material";
 import useStyles from "../styles";
 
 const BookCard = () => {
