@@ -1,4 +1,5 @@
 import React from "react";
+import {useState} from 'react';
 import {
   Typography,
   Container,
@@ -9,12 +10,18 @@ import {
   CardActions,
   Button,
 } from "@mui/material";
+import BookInfo from './BookInfo';
 import useStyles from "../styles";
 
 const BookCard = () => {
   const classes = useStyles();
+
+
+
+
   return (
     <>
+    
       <Grid item xs={12} sm={6} md={3} direction="row-reverse">
         <Card className={classes.card} style={{ border: "3px solid #103037", borderRadius: '15px' }}>
           <CardContent className={classes.cardContent}>

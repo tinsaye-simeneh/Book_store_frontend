@@ -10,9 +10,7 @@ function Footer() {
   const classes = useStyles();
   return (
     <div className={classes.footer}>
-     <Box justifyContent="center" alignItems="center" display={"flex"} sx={{margin: '50px 0px', color: 'white'}}>
-    <Pagination count={10} size='medium' className={classes.pagination} sx={{size: {xs: 'small'}}}/>
-    </Box>
+     
     <footer>
       <Box
         bgcolor={"#103037"}

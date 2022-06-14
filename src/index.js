@@ -9,6 +9,7 @@ function Book() {
   return <>
   <Header/>
   <Home />
+  
   <Footer />
   </>
 }

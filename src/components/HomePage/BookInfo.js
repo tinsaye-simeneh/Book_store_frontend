@@ -4,7 +4,7 @@ const BookInfo = (props) => {
 
   return (
     <>
-    <Modal open={props.open} onClose={props.close}>
+    <Modal open={true} onClose={props.close}>
         Hello world
     </Modal>
     </>
