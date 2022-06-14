@@ -1,10 +1,13 @@
 import React from "react";
-import { Typography, Grid, Container, Pagination, Box } from "@mui/material";
+import {useState} from 'react';
+import { Typography, Grid, Container, Pagination, Box, Modal } from "@mui/material";
 import BookCard from "./BookCard";
 import useStyles from "../styles";
+import BookInfo from "./BookInfo";
 
 const Home = () => {
   const classes=useStyles();
+  const [open, setOpen] = useState(false);
   const numbers=[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16];
   return (
     <>
@@ -19,7 +22,7 @@ const Home = () => {
             <BookCard key={e}/>
           )
         })}
-        
+      
       </Grid>
       <Box
         justifyContent="center"
