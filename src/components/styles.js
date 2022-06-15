@@ -4,11 +4,11 @@ import { makeStyles } from "@mui/styles";
 //color #103037
 const useStyles = makeStyles((theme) => ({
   footer: {
-   /* position: "absolute",
+    /* position: "absolute",
     bottom: 0,
     left: 0,
     right: 0, */
-    
+
     margin: "auto",
   },
   pagination: {},
@@ -34,8 +34,21 @@ const useStyles = makeStyles((theme) => ({
       backgroundColor: "white",
     },
     color: "white",
+<<<<<<< HEAD
     borderWidth: '2px',
     borderColor: '#103037'
+=======
+    "&:hover": {
+      color: "#103037",
+    },
+    borderWidth: "2px",
+    borderColor: "#103037",
+  },
+  bookInfo: {
+    [theme.breakpoints.down("sm")]: {
+      width: "100%",
+    },
+>>>>>>> 09e636dbf76ab36b73bfad0370000cb512082a4c
   },
 }));
 

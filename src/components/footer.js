@@ -1,7 +1,5 @@
 import React from "react";
-import { Container, Grid, Box, Typography } from "@mui/material";
-import { Pagination } from "@mui/material";
-import { Link } from "@mui/material";
+import { Container, Grid, Box, Typography,Link, Pagination } from "@mui/material";
 import FacebookIcon from "@mui/icons-material/Facebook";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import TwitterIcon from "@mui/icons-material/Twitter";
@@ -13,8 +11,6 @@ function Footer() {
   const classes = useStyles();
   return (
     <div className={classes.footer}>
-     <Box justifyContent="center" alignItems="center" display={"flex"} sx={{margin: '50px 0px', color: 'white'}}>
-       </Box>
     <footer>
       <Box
         bgcolor={"#103037"}
