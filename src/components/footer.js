@@ -25,7 +25,6 @@ function Footer() {
       >
         <Container maxWidth="lg">
           <Grid container spacing={10} justify="center">
-            <Grid item md={3} sm={12} xs={12}>
               <Box mb={{ sm: 3 }} justifyContent="center" alignItems="center" display={'flex'}>
                 <Typography variant="h6" align="center">
                   <strong>Help & Contact</strong>
