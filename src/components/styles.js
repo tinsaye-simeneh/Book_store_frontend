@@ -3,11 +3,11 @@ import { makeStyles } from "@material-ui/core/styles";
 //color #103037
 const useStyles = makeStyles((theme) => ({
   footer: {
-   /* position: "absolute",
+    /* position: "absolute",
     bottom: 0,
     left: 0,
     right: 0, */
-    
+
     margin: "auto",
   },
   pagination: {},
@@ -36,8 +36,13 @@ const useStyles = makeStyles((theme) => ({
     "&:hover": {
       color: "#103037",
     },
-    borderWidth: '2px',
-    borderColor: '#103037'
+    borderWidth: "2px",
+    borderColor: "#103037",
+  },
+  bookInfo: {
+    [theme.breakpoints.down("sm")]: {
+      width: "100%",
+    },
   },
 }));
 
