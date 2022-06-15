@@ -67,7 +67,7 @@ const BookInfo = (props) => {
                   </Typography>
                   <Typography variant="body2">Pages - 332</Typography>
                   <Typography variant="body2">Type - Fiction</Typography>
-                  <Typography variant="body2">Price - 300ETB</Typography>
+                  <Typography variant="body2" gutterBottom>Price - 300ETB</Typography>
                 </Typography>
               </Grid>
               <Grid item xs={12} md={12} lg={6}>
@@ -113,7 +113,7 @@ const BookInfo = (props) => {
             </Grid>
           </CardContent>
 
-          <Typography align="center">
+          <Typography align="center" gutterBottom>
             <Button
               variant="contained"
               sx={{
