@@ -8,7 +8,6 @@ import TwitterIcon from "@mui/icons-material/Twitter";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import useStyles from "./styles";
 //color #103037
-// <Pagination count={10} size='medium' className={classes.pagination} sx={{size: {xs: 'small'}}}/>
 
 function Footer() {
   const classes = useStyles();
