@@ -34,16 +34,6 @@ const useStyles = makeStyles((theme) => ({
       backgroundColor: "white",
     },
     color: "white",
-    "&:hover": {
-      color: "#103037",
-    },
-    borderWidth: "2px",
-    borderColor: "#103037",
-  },
-  bookInfo: {
-    [theme.breakpoints.down("sm")]: {
-      width: "100%",
-    },
   },
 }));
 
