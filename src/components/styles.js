@@ -34,10 +34,6 @@ const useStyles = makeStyles((theme) => ({
       backgroundColor: "white",
     },
     color: "white",
-<<<<<<< HEAD
-    borderWidth: '2px',
-    borderColor: '#103037'
-=======
     "&:hover": {
       color: "#103037",
     },
@@ -48,7 +44,6 @@ const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.down("sm")]: {
       width: "100%",
     },
->>>>>>> 09e636dbf76ab36b73bfad0370000cb512082a4c
   },
 }));
 
