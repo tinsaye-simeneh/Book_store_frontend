@@ -127,6 +127,7 @@ const BookInfo = (props) => {
               }}
               onClick={props.onClose}
             >
+              
               <strong>close</strong>
             </Button>
           </Typography>
