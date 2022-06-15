@@ -9,7 +9,6 @@ import LocalPhoneIcon from "@mui/icons-material/LocalPhone";
 import FacebookIcon from "@mui/icons-material/Facebook";
 import TelegramIcon from "@mui/icons-material/Telegram";
 
-import { BookAdding } from "./BookAdding";
 import "../index.css";
 import Link from "@mui/material/Link";
 
