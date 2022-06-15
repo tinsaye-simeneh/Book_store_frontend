@@ -7,7 +7,7 @@ import 'bootstrap/dist/js/bootstrap.bundle.min';
 import Box from '@mui/material/Box';
 import Modal from '@mui/material/Modal';
 import Button from '@mui/material/Button';
-import Account from './Account'
+import Input from './Inputs'
 import Login from './Login'
 import '../index.css'
 
@@ -21,7 +21,6 @@ const style = {
   transform: 'translate(-50%, -50%)',
   bgcolor: 'background.paper',
   maxHeight: 'calc(100vh)',
-  overflowY: 'auto',
   overflow: 'scroll',
   border: 'none',
   boxShadow: 24,
@@ -43,10 +42,13 @@ export default function Signup() {
     <div>
       
       <div className='navbar-nav m-auto mt-1'>
-      <button onClick={handleOpen} style={{
-                     border: 'none',
-                     backgroundColor: 'white'
-                }}> 
+      <button onClick={handleOpen} 
+      style={{
+        backgroundColor: 'white',
+        color:'#103037',
+        border: '2px solid #103037'
+   }}
+      > 
                 Signup
         </button>
   </div>
@@ -55,21 +57,20 @@ export default function Signup() {
         open={open}
         aria-labelledby="parent-modal-title"
         aria-describedby="parent-modal-description"
-        style={{overflow:'scroll'}}
       >
         <Box sx={{ ...style}} className='modal-div'>
 
-        <Account
-        modalText = {'SINGUP'}
+        <Input
+        modalText = {'SIGN UP'}
         formAction = {handleClose}
         linkText = {"Already have an account?"}
         LINK = {<Login 
           btnName = {'Login'} 
         iconState = {'d-none'} 
-        btnStyle = {{
-          border: 'none',
-        backgroundColor: 'white'
-      }}/>}
+        btntype = {{
+          
+        }} 
+      />}
         col1 = {'col-sm-12'}
         col2 = {'d-none'}
         />
@@ -81,7 +82,7 @@ export default function Signup() {
             color: 'white',
             fontSize: '1.1rem'
         }}> 
-        Back to login
+        Close
         </Button>
 
         </Box>
