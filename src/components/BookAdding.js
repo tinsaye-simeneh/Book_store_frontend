@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-
+import {useNavigate} from 'react-router-dom';
 import Button from "@mui/material/Button";
 import OutlinedInput from "@mui/material/OutlinedInput";
 import InputLabel from "@mui/material/InputLabel";
@@ -19,6 +19,9 @@ import { DesktopDatePicker } from "@mui/x-date-pickers/DesktopDatePicker";
 
 import "../index.css";
 import Link from "@mui/material/Link";
+import { NavigateBefore } from "@mui/icons-material";
+
+
 
 export default function BookAdding() {
   const BookAddingInput = ({ Label, type, disabled, icon, handleprop }) => {
@@ -33,6 +36,7 @@ export default function BookAdding() {
       setValues({ ...values, [prop]: event.target.value });
     };
 
+    
     return (
       <div className="col-sm-6 text-center">
         <FormControl sx={{ m: 1 }} variant="outlined" className="input-div">
@@ -83,7 +87,7 @@ export default function BookAdding() {
   const handleDatechange = (newValue) => {
     setDatevalue(newValue);
   };
-
+  let navigate = useNavigate();
   return (
     <>
       <form onSubmit={handleSubmit}>
@@ -202,7 +206,7 @@ export default function BookAdding() {
         <div className="row my-4 m-auto text-center">
           <div className="col-sm-12">
             <Link
-              onClick={handleCancelclick}
+              
               style={{
                 textDecoration: "none",
               }}
@@ -214,6 +218,7 @@ export default function BookAdding() {
                   color: "#103037",
                   border: "2px solid #103037",
                 }}
+                onClick={()=>navigate('/profile')}
               >
                 Back to Profile Page
               </Button>

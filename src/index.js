@@ -6,7 +6,7 @@ import Footer from './components/footer';
 import OtherPage from './components/Other_Page';
 import Home from './components/HomePage/Home';
 import BookAdding from './components/BookAdding';
-
+import {Profile} from './components/Profile';
 // didn't route BookAdding page because it needs it requires user login
 function Book() {
 
@@ -19,6 +19,8 @@ function Book() {
       <Route path="/" element={<Home />}/>
       <Route path="/Home" element={<Home/>} />
       <Route path="/about" element={<OtherPage />}/>
+      <Route path="/profile" element={<Profile/>}/>
+      <Route path="/bookadding" element={<BookAdding/>}/>
       <Route path="*" element={<Home/>} />
       </Routes>
     </Router>

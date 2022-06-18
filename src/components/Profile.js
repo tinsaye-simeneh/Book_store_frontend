@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import {useNavigate} from 'react-router-dom';
 
 import Button from "@mui/material/Button";
 import OutlinedInput from "@mui/material/OutlinedInput";
@@ -13,6 +14,8 @@ import "../index.css";
 import Link from "@mui/material/Link";
 
 export function Profile() {
+  let navigate = useNavigate();
+
   const BookAddingInput = ({ Label, icon, handleprop, type }) => {
     const [values, setValues] = useState({
       Name: "",
@@ -126,7 +129,6 @@ export function Profile() {
         <div className="row my-4 m-auto text-center">
         <div className="col-sm-12">
             <Link
-              onClick={()=>alert('yes')}
               style={{
                 textDecoration: "none",
               }}
@@ -138,6 +140,7 @@ export function Profile() {
                   color: "#103037",
                   border: "2px solid #103037",
                 }}
+                onClick={()=>navigate('/bookadding')}
               >
                 Post New Book
               </Button>
@@ -147,7 +150,7 @@ export function Profile() {
           <div className="row my-4 m-auto text-center">
           <div className="col-sm-12">
             <Link
-              onClick={handleCancelclick}
+              
               style={{
                 textDecoration: "none",
               }}
@@ -159,6 +162,7 @@ export function Profile() {
                   color: "#103037",
                   border: "2px solid #103037",
                 }}
+                onClick={()=>{navigate('/Home')}}
               >
                 Cancel & Back to Home Page
               </Button>
