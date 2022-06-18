@@ -20,7 +20,7 @@ import { DesktopDatePicker } from "@mui/x-date-pickers/DesktopDatePicker";
 import "../index.css";
 import Link from "@mui/material/Link";
 
-export function BookAdding() {
+export default function BookAdding() {
   const BookAddingInput = ({ Label, type, disabled, icon, handleprop }) => {
     const [values, setValues] = useState({
       Name: "",
@@ -78,9 +78,7 @@ export function BookAdding() {
     alert("please change this book please please");
   }
 
-  const [datevalue, setDatevalue] = useState(
-    new Date("2014-08-18T21:11:54")
-  );
+  const [datevalue, setDatevalue] = useState(new Date("2014-08-18T21:11:54"));
 
   const handleDatechange = (newValue) => {
     setDatevalue(newValue);
@@ -145,10 +143,7 @@ export function BookAdding() {
           </div>
 
           <div className="row">
-          <BookAddingInput
-              Label="Price"
-              type="number"
-            />
+            <BookAddingInput Label="Price" type="number" />
 
             <BookAddingInput
               Label="Telegram Username"
@@ -159,12 +154,8 @@ export function BookAdding() {
           </div>
 
           <div className="row">
-          <BookAddingInput
-              Label="Page"
-              type="number"
-            />
+            <BookAddingInput Label="Page" type="number" />
           </div>
-
 
           <div className="row">
             <div className="col-sm-6 text-center">
@@ -188,7 +179,7 @@ export function BookAdding() {
                 </Select>
               </FormControl>
             </div>
-            
+
             <div className="row mt-5 m-auto text-center">
               <div className="col-sm-12">
                 <Button

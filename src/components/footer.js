@@ -1,5 +1,4 @@
 import React from "react";
-
 import { Container, Grid, Box, Typography,Link, Pagination } from "@mui/material";
 
 import FacebookIcon from "@mui/icons-material/Facebook";
@@ -50,7 +49,7 @@ function Footer() {
               
               <Box mb={{ sm: 3 }} justifyContent="center" alignItems="center" display={'flex'}>
                 <Typography variant="h6">
-                  <strong>About us</strong>
+                  <a href="/about" style={{color: 'white'}}><strong>About us</strong></a>
                 </Typography>{" "}
               </Box>
               <Typography variant="body2" align="center">
@@ -70,7 +69,7 @@ function Footer() {
             <Grid item md={3} xs={12}>
               <Box mb={{ sm: 3 }}>
                 <Typography variant="h6" align="center">
-                  <strong>Other Pages</strong>
+                  <a href="/about" style={{color: 'white'}}><strong>Other Pages</strong></a>
                 </Typography>{" "}
               </Box>
               <Typography variant="body2" align="center">
