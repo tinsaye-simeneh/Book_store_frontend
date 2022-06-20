@@ -26,7 +26,6 @@ export default function Input({
   signupInputs,
 }) {
   const [values, setValues] = useState({
-    amount: "",
     password: "",
     email: "",
     username: "",

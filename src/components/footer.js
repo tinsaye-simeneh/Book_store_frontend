@@ -1,16 +1,17 @@
 import React from "react";
-import { Container, Grid, Box, Typography,Link } from "@mui/material";
+import { Container, Grid, Box, Typography,Link, Pagination } from "@mui/material";
+
 import FacebookIcon from "@mui/icons-material/Facebook";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import TwitterIcon from "@mui/icons-material/Twitter";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import useStyles from "./styles";
 //color #103037
-
 function Footer() {
   const classes = useStyles();
   return (
     <div className={classes.footer}>
+
     <footer>
       <Box
         bgcolor={"#103037"}
@@ -20,6 +21,7 @@ function Footer() {
       >
         <Container maxWidth="lg">
           <Grid container spacing={10} justify="center">
+            <Grid item md={3} sm={12} xs={12}>
               <Box mb={{ sm: 3 }} justifyContent="center" alignItems="center" display={'flex'}>
                 <Typography variant="h6" align="center">
                   <strong>Help & Contact</strong>
@@ -47,7 +49,7 @@ function Footer() {
               
               <Box mb={{ sm: 3 }} justifyContent="center" alignItems="center" display={'flex'}>
                 <Typography variant="h6">
-                  <strong>About us</strong>
+                  <a href="/about" style={{color: 'white'}}><strong>About us</strong></a>
                 </Typography>{" "}
               </Box>
               <Typography variant="body2" align="center">
@@ -67,7 +69,7 @@ function Footer() {
             <Grid item md={3} xs={12}>
               <Box mb={{ sm: 3 }}>
                 <Typography variant="h6" align="center">
-                  <strong>Other Pages</strong>
+                  <a href="/about" style={{color: 'white'}}><strong>Other Pages</strong></a>
                 </Typography>{" "}
               </Box>
               <Typography variant="body2" align="center">
