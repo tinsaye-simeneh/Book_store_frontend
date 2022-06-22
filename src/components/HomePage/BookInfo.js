@@ -18,6 +18,7 @@ import TelegramIcon from "@mui/icons-material/Telegram";
 
 const BookInfo = (props) => {
   const classes = useStyles();
+
   return (
     <>
       <Modal open={props.open} onClose={props.onClose}>
@@ -52,7 +53,7 @@ const BookInfo = (props) => {
                       color: "white",
                     }}
                   >
-                    Book Name - Oromai
+                    Book Name - {props.title}
                   </span>
                 </Typography>
                 <Typography align="center">
@@ -61,13 +62,13 @@ const BookInfo = (props) => {
                       <strong>Details</strong>
                     </span>
                   </Typography>
-                  <Typography variant="body2">Author - Bealu Girma</Typography>
+                  <Typography variant="body2">Author - {props.author}</Typography>
                   <Typography variant="body2">
-                    Published on - May 29, 1990
+                    Published by - {props.genre}
                   </Typography>
-                  <Typography variant="body2">Pages - 332</Typography>
-                  <Typography variant="body2">Type - Fiction</Typography>
-                  <Typography variant="body2" gutterBottom>Price - 300ETB</Typography>
+                  <Typography variant="body2">Pages - {props.page}</Typography>
+                  <Typography variant="body2">Type - {props.genre}</Typography>
+                  <Typography variant="body2" gutterBottom>Price - {props.price}</Typography>
                 </Typography>
               </Grid>
               <Grid item xs={12} md={12} lg={6}>
