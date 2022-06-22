@@ -1,18 +1,19 @@
 import React from 'react';
 import ReactDOM from 'react-dom'
 import{BrowserRouter as Router, Routes, Route} from 'react-router-dom';
+
 import Header from './components/header';
 import Footer from './components/footer';
 import OtherPage from './components/Other_Page';
 import Home from './components/HomePage/Home';
 import BookAdding from './components/BookAdding';
-import {Profile} from './components/Profile';
-// didn't route BookAdding page because it needs it requires user login
+import Profile from './components/Profile';
+
 function Book() {
 
   return (
   <>
-  <Header />
+  <Header/>
   
     <Router>
       <Routes>
