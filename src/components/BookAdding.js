@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-
+import {useNavigate} from 'react-router-dom';
 import Button from "@mui/material/Button";
 import OutlinedInput from "@mui/material/OutlinedInput";
 import InputLabel from "@mui/material/InputLabel";
@@ -19,8 +19,11 @@ import { DesktopDatePicker } from "@mui/x-date-pickers/DesktopDatePicker";
 
 import "../index.css";
 import Link from "@mui/material/Link";
+import { NavigateBefore } from "@mui/icons-material";
 
-export function BookAdding() {
+
+
+export default function BookAdding() {
   const BookAddingInput = ({ Label, type, disabled, icon, handleprop }) => {
     const [values, setValues] = useState({
       Name: "",
@@ -33,6 +36,7 @@ export function BookAdding() {
       setValues({ ...values, [prop]: event.target.value });
     };
 
+    
     return (
       <div className="col-sm-6 text-center">
         <FormControl sx={{ m: 1 }} variant="outlined" className="input-div">
@@ -78,14 +82,12 @@ export function BookAdding() {
     alert("please change this book please please");
   }
 
-  const [datevalue, setDatevalue] = useState(
-    new Date("2014-08-18T21:11:54")
-  );
+  const [datevalue, setDatevalue] = useState(new Date("2014-08-18T21:11:54"));
 
   const handleDatechange = (newValue) => {
     setDatevalue(newValue);
   };
-
+  let navigate = useNavigate();
   return (
     <>
       <form onSubmit={handleSubmit}>
@@ -145,10 +147,7 @@ export function BookAdding() {
           </div>
 
           <div className="row">
-          <BookAddingInput
-              Label="Price"
-              type="number"
-            />
+            <BookAddingInput Label="Price" type="number" />
 
             <BookAddingInput
               Label="Telegram Username"
@@ -159,12 +158,8 @@ export function BookAdding() {
           </div>
 
           <div className="row">
-          <BookAddingInput
-              Label="Page"
-              type="number"
-            />
+            <BookAddingInput Label="Page" type="number" />
           </div>
-
 
           <div className="row">
             <div className="col-sm-6 text-center">
@@ -188,7 +183,7 @@ export function BookAdding() {
                 </Select>
               </FormControl>
             </div>
-            
+
             <div className="row mt-5 m-auto text-center">
               <div className="col-sm-12">
                 <Button
@@ -211,7 +206,7 @@ export function BookAdding() {
         <div className="row my-4 m-auto text-center">
           <div className="col-sm-12">
             <Link
-              onClick={handleCancelclick}
+              
               style={{
                 textDecoration: "none",
               }}
@@ -223,6 +218,7 @@ export function BookAdding() {
                   color: "#103037",
                   border: "2px solid #103037",
                 }}
+                onClick={()=>navigate('/profile')}
               >
                 Back to Profile Page
               </Button>

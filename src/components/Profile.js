@@ -1,171 +1,289 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
 import Button from "@mui/material/Button";
 import OutlinedInput from "@mui/material/OutlinedInput";
 import InputLabel from "@mui/material/InputLabel";
 import FormControl from "@mui/material/FormControl";
 import InputAdornment from "@mui/material/InputAdornment";
+import Visibility from "@mui/icons-material/Visibility";
+import IconButton from "@mui/material/IconButton";
+import VisibilityOff from "@mui/icons-material/VisibilityOff";
 import LocalPhoneIcon from "@mui/icons-material/LocalPhone";
 import FacebookIcon from "@mui/icons-material/Facebook";
 import TelegramIcon from "@mui/icons-material/Telegram";
-
-import "../index.css";
 import Link from "@mui/material/Link";
 
-export function Profile() {
-  const BookAddingInput = ({ Label, icon, handleprop, type }) => {
-    const [values, setValues] = useState({
-      Name: "",
-      Author: "",
-      Price: "",
-      Page: "",
-    });
+import "../index.css";
 
-    const handleChange = (prop) => (event) => {
-      setValues({ ...values, [prop]: event.target.value });
-    };
+export default function Profile() {
+  let token = localStorage.getItem("accesstoken");
+  let Username = localStorage.getItem("userName");
+  let Email = localStorage.getItem("userEmail");
+  let Phone = localStorage.getItem("userPhone");
+  let Facebook = localStorage.getItem("userFacebook");
+  let Telegram = localStorage.getItem("userTelegram");
 
-    return (
-      <div className="col-sm-6 text-center">
-        <FormControl sx={{ m: 1 }} variant="outlined" className="input-div">
-          <InputLabel htmlFor="outlined-adornment-input">{Label}</InputLabel>
-          <OutlinedInput
-            required
-            id={"outlined-adornment-" + { Label }}
-            label={Label}
-            value={values.Label}
-            type = {type}
-            onChange={handleChange({ handleprop })}
-            startAdornment={
-              <InputAdornment position="start">{icon}</InputAdornment>
-            }
-          />
-        </FormControl>
-      </div>
-    );
+  const [values, setValues] = useState({
+    email: Email,
+    username: Username,
+    phone: Phone,
+    facebook: Telegram,
+    telegram: Facebook,
+    password: "",
+  });
+
+  const updateUsers = async (e) =>{
+    e.preventDefault();
+    try {
+      let res = await axios.put(
+        "https://bookstore-utopix.herokuapp.com/auth/profile",
+        {
+          username: values.username,
+          email: values.email,
+          phone: values.phone,
+          facebook: values.facebook,
+          telegram: values.telegram,
+          headers : {
+            accessToken: {token}
+          }   
+        }
+      );
+
+      console.log(res.data);
+
+      localStorage.removeItem("userName");
+      localStorage.removeItem("userEmail");
+      localStorage.removeItem("userPhone");
+      localStorage.removeItem("userTelegram");
+      localStorage.removeItem("userFacebook");
+
+      localStorage.setItem("userName", values.username);
+      localStorage.setItem("userEmail", values.email);
+      localStorage.setItem("userPhone", values.phone);
+      localStorage.setItem("userTelegram", values.telegram);
+      localStorage.setItem("userFacebook", values.facebook);
+      window.location.href = '/Home'
+    } catch (err) {
+      alert(err);
+    }
+  };
+  const handleChange = (prop) => (event) => {
+    setValues({ ...values, [prop]: event.target.value });
   };
 
-  function handleCancelclick() {
-    alert("yoooo it worked");
-  }
+  const handleClickShowPassword = () => {
+    setValues({
+      ...values,
+      showPassword: !values.showPassword,
+    });
+  };
 
-  function handleSubmit() {
-    alert("please change this book please please");
-  }
-
+  const handleMouseDownPassword = (event) => {
+    event.preventDefault();
+  };
 
   return (
-    <>
-      <form onSubmit={handleSubmit}>
+    <div>
+      <h3 className="text-center my-4">Profile</h3>
+      <form onSubmit={updateUsers}>
         <div className="container">
-          <h3 className="text-center my-4"> 
-          Profile
-            </h3>
-
           <div className="row">
-            <BookAddingInput 
-              Label="email" 
-              type="email" 
-              handleprop="email" />
-            
-            <BookAddingInput
-              Label="Phone Number"
-              type="Number"
-              handleprop="Phone"
-              icon=<LocalPhoneIcon />
-           />
-          </div>
-
-          <div className="row">
-            <BookAddingInput
-              Label="password"
-              type="password"
-              handleprop="Password"
-            />
-             <BookAddingInput
-              Label="Telegram Username"
-              type="text"
-              handleprop='Telegram'
-              icon=<TelegramIcon />
-            />
-          </div>
-
-          <div className="row">
-          <BookAddingInput
-              Label="UserName"
-              type = "text"
-              handleprop='Username'
-            />
-
-            <BookAddingInput
-              Label="Facebook Username"
-              type="text"
-              handleprop='Facebook'
-              icon=<FacebookIcon />
-            />
-          </div>
-
-            <div className="row mt-5 m-auto text-center">
-              <div className="col-sm-12">
-                <Button
-                  variant="contained"
-                  type="submit"
-                  className="btn-div"
-                  style={{
-                    backgroundColor: "#103037",
-                  }}
-                >
-                  Save
-                </Button>
-              </div>
-          </div>
-        </div>
-      </form>
-      <hr/>
-      <div className="container">
-        <div className="row my-4 m-auto text-center">
-        <div className="col-sm-12">
-            <Link
-              onClick={()=>alert('yes')}
-              style={{
-                textDecoration: "none",
-              }}
-            >
-              <Button
-                className="btn-div"
-                style={{
-                  backgroundColor: "white",
-                  color: "#103037",
-                  border: "2px solid #103037",
-                }}
+            <div className="col-sm-6 text-center">
+              <FormControl
+                sx={{ m: 1 }}
+                variant="outlined"
+                className="input-div"
               >
-                Post New Book
-              </Button>
-            </Link>
+                <InputLabel htmlFor="outlined-adornment-input">
+                  Email
+                </InputLabel>
+                <OutlinedInput
+                  required
+                  id="outlined-adornment-email"
+                  type="email"
+                  value={values.email}
+                  onChange={handleChange("email")}
+                  label="email"
+                />
+              </FormControl>
+            </div>
+
+            <div className="col-sm-6 text-center">
+              <FormControl
+                sx={{ m: 1 }}
+                variant="outlined"
+                className="input-div"
+              >
+                <InputLabel htmlFor="outlined-adornment-input">
+                  Username
+                </InputLabel>
+                <OutlinedInput
+                  required
+                  id="outlined-adornment-username"
+                  type="username"
+                  value={values.username}
+                  onChange={handleChange("username")}
+                  label="username"
+                />
+              </FormControl>
+            </div>
           </div>
+
+          <div className="row">
+            <div className="col-sm-6 text-center">
+              <FormControl
+                sx={{ m: 1 }}
+                variant="outlined"
+                className="input-div"
+              >
+                <InputLabel htmlFor="outlined-adornment-input">
+                  Phone
+                </InputLabel>
+                <OutlinedInput
+                  required
+                  id="outlined-adornment-phone"
+                  type="phone"
+                  value={values.phone}
+                  onChange={handleChange("phone")}
+                  label="phone"
+                />
+              </FormControl>
+            </div>
+
+            <div className="col-sm-6 text-center">
+            <FormControl sx={{ m: 1 }} className="input-div" variant="outlined">
+            <InputLabel htmlFor="outlined-adornment-password">
+              Password
+            </InputLabel>
+            <OutlinedInput
+              required
+              id="outlined-adornment-password"
+              disabled = 'disabled'
+              type={values.showPassword ? "text" : "password"}
+              value={values.password}
+              onChange={handleChange("password")}
+              endAdornment={
+                <InputAdornment position="end">
+                  <IconButton
+                    aria-label="toggle password visibility"
+                    onClick={handleClickShowPassword}
+                    onMouseDown={handleMouseDownPassword}
+                    edge="end"
+                  >
+                    {values.showPassword ? <VisibilityOff /> : <Visibility />}
+                  </IconButton>
+                </InputAdornment>
+              }
+              label="Password"
+            />
+          </FormControl>
+            </div>
           </div>
+
+          <div className="row">
+            <div className="col-sm-6 text-center">
+              <FormControl
+                sx={{ m: 1 }}
+                variant="outlined"
+                className="input-div"
+              >
+                <InputLabel htmlFor="outlined-adornment-input">
+                  Telegram
+                </InputLabel>
+                <OutlinedInput
+                  required
+                  id="outlined-adornment-telegram"
+                  type="telegram"
+                  value={values.telegram}
+                  onChange={handleChange("telegram")}
+                  label="telegram"
+                />
+              </FormControl>
+            </div>
+
+            <div className="col-sm-6 text-center">
+              <FormControl
+                sx={{ m: 1 }}
+                variant="outlined"
+                className="input-div"
+              >
+                <InputLabel htmlFor="outlined-adornment-input">
+                  Facebook
+                </InputLabel>
+                <OutlinedInput
+                  required
+                  id="outlined-adornment-facebook"
+                  type="facebook"
+                  value={values.facebook}
+                  onChange={handleChange("facebook")}
+                  label="facebook"
+                />
+              </FormControl>
+            </div>
+          </div>
+
           <div className="row my-4 m-auto text-center">
           <div className="col-sm-12">
-            <Link
-              onClick={handleCancelclick}
-              style={{
-                textDecoration: "none",
-              }}
-            >
               <Button
                 className="btn-div"
                 style={{
-                  backgroundColor: "white",
-                  color: "#103037",
+                  backgroundColor: "#103037",
+                  color: "white",
+                  border: "2px solid #103037",
+                }}
+                type="submit"
+              >
+                Update
+              </Button>
+          </div>
+        </div>
+
+        </div>
+      </form>
+
+      <hr />
+      <div className="container">
+       <div className="row m-auto text-center">
+          <div className="col-sm-12">
+          <a href='/bookadding'
+          style={{textDecoration:'none'}}>
+              <Button
+                className="btn-div"
+                type='submit'
+                style={{
+                  backgroundColor: "#103037",
+                  color: "white",
                   border: "2px solid #103037",
                 }}
               >
-                Cancel & Back to Home Page
+                
+                Post New Book
               </Button>
-            </Link>
+              </a>
           </div>
         </div>
+
+        <div className="row mt-3 mb-3 m-auto text-center">
+          <div className="col-sm-12">
+          <a href='/Home'
+          style={{textDecoration:'none'}}>
+              <Button
+                className="btn-div"
+                style={{
+                  backgroundColor: "#103037",
+                  color: "white",
+                  border: "2px solid #103037",
+                }}
+              >
+                Back to Home page
+              </Button>
+              </a>
+          </div>
+        </div>
+                <div className='mb-5'> &nbsp;</div>
       </div>
-    </>
+    </div>
   );
 }

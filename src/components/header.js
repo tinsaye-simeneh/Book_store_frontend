@@ -1,13 +1,35 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import logo from "../assets/logo.png";
+
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min";
+
 import SearchIcon from "@mui/icons-material/Search";
+
 import Login from "./Login";
-import Signup from "./Signup";
 import "../index.css";
 
-const Header = ({ accountState }) => {
+const Header = () => {
+  const [loggedinbtnState, setLoggedinbtnState] = useState(false);
+  let userInfo = localStorage.getItem("userName");
+  
+  useEffect(()=>{
+    if(userInfo){
+      setLoggedinbtnState(true)
+    }
+  }, [userInfo])
+
+  const logout = () => {
+    localStorage.removeItem('accesstoken')
+    localStorage.removeItem('userName')
+    localStorage.removeItem('userEmail')
+    localStorage.removeItem('userPhone')
+    localStorage.removeItem('userTelegram')
+    localStorage.removeItem('userFacebook')
+    window.location.href = '/Home'
+    setLoggedinbtnState(false)
+  }
+
   return (
     <React.Fragment>
       <nav
@@ -44,14 +66,49 @@ const Header = ({ accountState }) => {
               </button>
             </form>
 
-            <div className="row  mt-1">
-              <div className="col-6 mb-1">
-                <Login btnName={"Login"} />
+            <div className="row">
+              {loggedinbtnState ? ( 
+                <>
+                <div className="navbar-nav m-auto ps-3 mt-2 col-6">    
+                <button
+                  onClick={(e) => {
+                    e.preventDefault();
+                    window.location.href = "./Profile";
+                  }}
+                  type="submit"
+                  style={{
+                    backgroundColor: "#103037",
+                    color: "white",
+                    border: "2px solid #103037",
+                    borderRadius:'5px'
+                  }}
+                >
+                {userInfo}
+                </button>
+                </div>
+                <div className="navbar-nav m-auto ps-3 mt-1 col-6">
+                <button
+                onClick={ 
+                  logout
+                }
+                type="submit"
+                style={{
+                  backgroundColor: "#103037",
+                  color: "white",
+                  border: "2px solid #103037",
+                  borderRadius:'5px'
+                }}
+              >
+              Logout
+              </button>
               </div>
-
-              <div className="col-6">
-                <Signup btnName={"Signup"} />
-              </div>
+              </>
+              ) : (
+                <div className="navbar-nav m-auto ps-3 mt-2 col-12">
+                  <Login setLogged={setLoggedinbtnState}/>
+                  </div>
+              )}
+               
             </div>
           </div>
         </div>
@@ -59,6 +116,5 @@ const Header = ({ accountState }) => {
     </React.Fragment>
   );
 };
-
 
 export default Header;

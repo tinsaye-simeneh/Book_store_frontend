@@ -12,13 +12,7 @@ body {
     .modal-div{
      width: 50vw;
     }
-    .email-div{
-        width: 30vw;
-       }
        .input-div{
-        width: 30vw;
-       }
-       .password-div{
         width: 30vw;
        }
        .btn-div{
@@ -39,13 +33,7 @@ body {
     .modal-div {
       width: 100vw;
     }
-    .email-div{
-        width: 75vw;
-       }
        .input-div{
-        width: 90vw;
-       }
-       .password-div{
         width: 75vw;
        }
        .btn-div{
