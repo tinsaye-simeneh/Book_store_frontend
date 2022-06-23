@@ -1,28 +1,14 @@
 import React from "react";
-<<<<<<< HEAD
+
 import { Container, Grid, Box, Typography,Link, Pagination } from "@mui/material";
 
-=======
 
-import { 
-  Container, 
-  Grid, 
-  Box, 
-  Typography,
-  Link 
-} from "@mui/material";
->>>>>>> 9f8e84ccbce9f124989de2a5e5ac0ddb7a2ea94a
 import FacebookIcon from "@mui/icons-material/Facebook";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import TwitterIcon from "@mui/icons-material/Twitter";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 
 import useStyles from "./styles";
-<<<<<<< HEAD
-//color #103037
-=======
-
->>>>>>> 9f8e84ccbce9f124989de2a5e5ac0ddb7a2ea94a
 function Footer() {
   const classes = useStyles();
   return (
